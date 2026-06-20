@@ -4,7 +4,6 @@ from neuralfabric.core.tensor import Tensor
 
 RTOL, ATOL = (0.0001, 1e-06)
 
-
 def finite_diff_grad(f, x: np.ndarray, h: float = 1e-05) -> np.ndarray:
     grad = np.zeros_like(x, dtype=np.float64)
     it = np.nditer(x, flags=["multi_index"])
