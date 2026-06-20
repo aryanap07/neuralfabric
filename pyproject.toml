@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "neuralfabric"
 version = "0.1.0.dev1"
-description = "NeuralFabric: a from-scratch ML/DL framework."
+description = "A from-scratch machine learning and deep learning framework, from linear regression to transformers."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
