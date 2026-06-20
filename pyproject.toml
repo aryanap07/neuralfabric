@@ -3,9 +3,9 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "NeuralFabric"
+name = "neuralfabric"
 version = "0.1.0"
-description = "NeuralFabric: a from-scratch ML/DL framework — from linear regression to transformers."
+description = "NeuralFabric: a from-scratch ML/DL framework."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
