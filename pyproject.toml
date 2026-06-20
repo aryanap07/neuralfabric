@@ -35,7 +35,7 @@ viz = ["matplotlib"]
 [project.urls]
 Homepage = "https://github.com/aryanap07/neuralfabric"
 Repository = "https://github.com/aryanap07/neuralfabric"
-"Bug Tracker" = "https://github.com/aryanap07/neuralfabric/issues"
+Issues = "https://github.com/aryanap07/neuralfabric/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
