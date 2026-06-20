@@ -7,7 +7,7 @@ dev:
 	pip install -e ".[dev]"
 
 test:
-	pytest --cov=levelgraphs --cov-report=term-missing
+	pytest --cov=neuralfabric --cov-report=term-missing
 
 lint:
 	ruff check src tests

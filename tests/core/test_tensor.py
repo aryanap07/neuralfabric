@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from levelgraphs.core.tensor import Tensor
+from neuralfabric.core.tensor import Tensor
 
 RTOL, ATOL = (0.0001, 1e-06)
 
