@@ -1,15 +1,26 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+## [0.7] - 2026-06-21
 
-## [Unreleased]
 ### Added
-- Project scaffold: src-layout package, core/linear_model/tree/ensemble/svm/
-  naive_bayes/cluster/decomposition/nn/transformer/optim/preprocessing/
-  model_selection/metrics/datasets/utils subpackages.
-- BaseEstimator + Mixins, exceptions, global config.
-- CI workflow, PyPI publish workflow, packaging config.
 
-## [0.1.0] - TBD
-- Initial public release (placeholder).
+* Linear Regression model
+* Logistic Regression model
+* Gradient Descent optimization
+* Probability prediction for classification
+* Binary classification support
+* Train-test split utility
+* Tensor-based machine learning workflows
+
+### Improved
+
+* Tensor operations and autograd engine
+* Type annotations and code quality
+* Project structure and documentation
+* Test coverage and CI workflows
+
+### Fixed
+
+* Packaging and PyPI publishing issues
+* Versioning and release workflow issues
+* Minor bugs and edge cases across models
