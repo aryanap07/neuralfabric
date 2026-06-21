@@ -1,6 +1,6 @@
 # NeuralFabric
 
-A from-scratch machine learning and deep learning framework, from linear regression to transformers.
+A from-scratch machine learning and deep learning framework, from tensors to transformers.
 
 ## Installation
 
