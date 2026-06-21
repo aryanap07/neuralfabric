@@ -47,3 +47,12 @@ jobs:
 
       - name: Run tests
         run: pytest --cov=neuralfabric --cov-report=term-missing
+
+  ci:
+    name: CI
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: CI passed
+        run: echo "All checks passed successfully."
