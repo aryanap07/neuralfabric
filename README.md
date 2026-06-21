@@ -5,7 +5,7 @@ A from-scratch machine learning and deep learning framework, from tensors to tra
 ## Installation
 
 ```bash
-pip install neuralfabric
+pip install -U neuralfabric
 # or, for local development:
 pip install -e ".[dev]"
 ```
