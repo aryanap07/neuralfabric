@@ -31,7 +31,6 @@ docs = ["sphinx", "sphinx-rtd-theme"]
 viz = ["matplotlib"]
 
 [project.urls]
-Homepage = "https://github.com/aryanap07/neuralfabric"
 Repository = "https://github.com/aryanap07/neuralfabric"
 Issues = "https://github.com/aryanap07/neuralfabric/issues"
 
