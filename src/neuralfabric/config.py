@@ -10,4 +10,5 @@ def set_seed(seed: int) -> None:
     global RANDOM_SEED
     RANDOM_SEED = seed
     import numpy as np
+
     np.random.seed(seed)

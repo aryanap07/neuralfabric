@@ -18,9 +18,7 @@ def train_test_split(
     n_samples = X.shape[0]
 
     if y.shape[0] != n_samples:
-        raise ValueError(
-            "X and y must contain the same number of samples."
-        )
+        raise ValueError("X and y must contain the same number of samples.")
 
     indices = np.arange(n_samples)
 

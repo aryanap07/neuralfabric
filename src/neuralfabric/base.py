@@ -25,6 +25,7 @@ class RegressorMixin:
 
     def score(self, X, y):
         from .metrics.regression import r2_score
+
         return r2_score(y, self.predict(X))
 
 
@@ -33,6 +34,7 @@ class ClassifierMixin:
 
     def score(self, X, y):
         from .metrics.classification import accuracy_score
+
         return accuracy_score(y, self.predict(X))
 
 

@@ -5,7 +5,7 @@ from neuralfabric.core.tensor import Tensor
 
 class LinearRegression:
     """
-    Ordinary Least Squares Linear Regression
+    Ordinary Least Squares (OLS) Linear Regression
     optimized using Gradient Descent.
     """
 
@@ -24,11 +24,11 @@ class LinearRegression:
         self,
         X: Tensor,
         y: Tensor,
-    ) -> "LinearRegression":
+    ) -> LinearRegression:
         n_features = X.shape[1]
 
         self.weight = Tensor(
-            [[0.0]] * n_features,
+            [[0.0] for _ in range(n_features)],
             requires_grad=True,
         )
 
@@ -47,21 +47,23 @@ class LinearRegression:
 
             loss.backward()
 
-            self.weight.data -= (
-                self.lr * self.weight.grad
-            )
+            weight_grad = self.weight.grad
+            bias_grad = self.bias.grad
 
-            self.bias.data -= (
-                self.lr * self.bias.grad
-            )
+            assert weight_grad is not None
+            assert bias_grad is not None
+
+            self.weight.data -= self.lr * weight_grad
+            self.bias.data -= self.lr * bias_grad
 
         return self
 
-    def predict(self, X: Tensor) -> Tensor:
+    def predict(
+        self,
+        X: Tensor,
+    ) -> Tensor:
         if self.weight is None or self.bias is None:
-            raise RuntimeError(
-                "LinearRegression must be fitted before prediction."
-            )
+            raise RuntimeError("LinearRegression must be fitted before prediction.")
 
         return X @ self.weight + self.bias
 
@@ -74,11 +76,7 @@ class LinearRegression:
 
         ss_res = ((y - predictions) ** 2).sum().item()
 
-        ss_tot = (
-            ((y - y.mean()) ** 2)
-            .sum()
-            .item()
-        )
+        ss_tot = ((y - y.mean()) ** 2).sum().item()
 
         return 1.0 - (ss_res / ss_tot)
 
@@ -89,8 +87,4 @@ class LinearRegression:
         return [self.weight, self.bias]
 
     def __repr__(self) -> str:
-        return (
-            f"LinearRegression("
-            f"lr={self.lr}, "
-            f"epochs={self.epochs})"
-        )
+        return "LinearRegression(" f"lr={self.lr}, " f"epochs={self.epochs})"

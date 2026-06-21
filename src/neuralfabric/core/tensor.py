@@ -1,6 +1,7 @@
 from __future__ import annotations
 import numpy as np
 
+
 class Tensor:
     __slots__ = ("data", "grad", "requires_grad", "_prev", "_op", "_backward")
 
