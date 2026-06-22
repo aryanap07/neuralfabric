@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "neuralfabric"
-version = "0.1.0.dev2"
-description = "A from-scratch machine learning and deep learning framework, from linear regression to transformers."
+version = "0.7.1"
+description = "A from-scratch machine learning and deep learning framework, from tensors to transformers."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [{ name = "Aryan Patel", email = "aryanpatel2906.ap@gmail.com" }]
 keywords = ["machine-learning", "deep-learning", "transformer", "neural-network", "autograd"]
@@ -17,8 +17,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -33,7 +31,6 @@ docs = ["sphinx", "sphinx-rtd-theme"]
 viz = ["matplotlib"]
 
 [project.urls]
-Homepage = "https://github.com/aryanap07/neuralfabric"
 Repository = "https://github.com/aryanap07/neuralfabric"
 Issues = "https://github.com/aryanap07/neuralfabric/issues"
 

@@ -4,6 +4,7 @@ from neuralfabric.core.tensor import Tensor
 
 RTOL, ATOL = (0.0001, 1e-06)
 
+
 def finite_diff_grad(f, x: np.ndarray, h: float = 1e-05) -> np.ndarray:
     grad = np.zeros_like(x, dtype=np.float64)
     it = np.nditer(x, flags=["multi_index"])
@@ -73,6 +74,40 @@ def test_exp_gradient(rng):
 def test_log_gradient(rng):
     x = np.abs(rng.standard_normal(4)) + 0.5
     assert_matches_finite_diff(lambda x: x.log().sum(), x)
+
+
+def test_clip_forward() -> None:
+    x = Tensor([-2.0, -0.5, 0.5, 2.0])
+
+    y = x.clip(-1.0, 1.0)
+
+    assert y.data.tolist() == [
+        -1.0,
+        -0.5,
+        0.5,
+        1.0,
+    ]
+
+
+def test_clip_backward() -> None:
+    x = Tensor(
+        [-2.0, -0.5, 0.5, 2.0],
+        requires_grad=True,
+    )
+
+    y = x.clip(-1.0, 1.0)
+    loss = y.sum()
+
+    loss.backward()
+
+    assert x.grad is not None
+
+    assert x.grad.tolist() == [
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+    ]
 
 
 def test_relu_gradient():

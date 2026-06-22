@@ -8,19 +8,23 @@ def test_fit_learns_simple_linear_relationship():
     """
     y = 2x + 1
     """
-    X = Tensor([
-        [1.0],
-        [2.0],
-        [3.0],
-        [4.0],
-    ])
+    X = Tensor(
+        [
+            [1.0],
+            [2.0],
+            [3.0],
+            [4.0],
+        ]
+    )
 
-    y = Tensor([
-        [3.0],
-        [5.0],
-        [7.0],
-        [9.0],
-    ])
+    y = Tensor(
+        [
+            [3.0],
+            [5.0],
+            [7.0],
+            [9.0],
+        ]
+    )
 
     model = LinearRegression(
         lr=0.01,
@@ -51,15 +55,19 @@ def test_predict_before_fit_raises_error():
 
 
 def test_parameters_exist_after_fit():
-    X = Tensor([
-        [1.0],
-        [2.0],
-    ])
+    X = Tensor(
+        [
+            [1.0],
+            [2.0],
+        ]
+    )
 
-    y = Tensor([
-        [2.0],
-        [4.0],
-    ])
+    y = Tensor(
+        [
+            [2.0],
+            [4.0],
+        ]
+    )
 
     model = LinearRegression()
     model.fit(X, y)
@@ -72,17 +80,21 @@ def test_parameters_exist_after_fit():
 
 
 def test_prediction_shape():
-    X = Tensor([
-        [1.0],
-        [2.0],
-        [3.0],
-    ])
+    X = Tensor(
+        [
+            [1.0],
+            [2.0],
+            [3.0],
+        ]
+    )
 
-    y = Tensor([
-        [2.0],
-        [4.0],
-        [6.0],
-    ])
+    y = Tensor(
+        [
+            [2.0],
+            [4.0],
+            [6.0],
+        ]
+    )
 
     model = LinearRegression(
         lr=0.01,
@@ -97,19 +109,23 @@ def test_prediction_shape():
 
 
 def test_score_returns_high_r2():
-    X = Tensor([
-        [1.0],
-        [2.0],
-        [3.0],
-        [4.0],
-    ])
+    X = Tensor(
+        [
+            [1.0],
+            [2.0],
+            [3.0],
+            [4.0],
+        ]
+    )
 
-    y = Tensor([
-        [3.0],
-        [5.0],
-        [7.0],
-        [9.0],
-    ])
+    y = Tensor(
+        [
+            [3.0],
+            [5.0],
+            [7.0],
+            [9.0],
+        ]
+    )
 
     model = LinearRegression(
         lr=0.01,
@@ -129,7 +145,4 @@ def test_repr():
         epochs=100,
     )
 
-    assert (
-        repr(model)
-        == "LinearRegression(lr=0.1, epochs=100)"
-    )
+    assert repr(model) == "LinearRegression(lr=0.1, epochs=100)"

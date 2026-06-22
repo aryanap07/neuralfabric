@@ -1,78 +1,97 @@
 # NeuralFabric
 
-A from-scratch machine learning and deep learning framework, from linear regression to transformers.
+A from-scratch machine learning and deep learning framework, from tensors to transformers.
+
+## Features
+
+* Tensor engine built on NumPy
+* Automatic differentiation (Autograd)
+* Linear Regression
+* Logistic Regression
+* Train-test split utility
+* Modern Python packaging
+* Type-safe codebase with MyPy
+* Ruff, Black, Pytest, and GitHub Actions integration
 
 ## Installation
 
 ```bash
-pip install neuralfabric
-# or, for local development:
+pip install -U neuralfabric
+```
+
+For development:
+
+```bash
 pip install -e ".[dev]"
 ```
 
-## Quick start (target API — see roadmap)
+## Quick Start
 
 ```python
 from neuralfabric.linear_model import LinearRegression
 from neuralfabric.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+)
 
 model = LinearRegression()
 model.fit(X_train, y_train)
-preds = model.predict(X_test)
+
+predictions = model.predict(X_test)
 ```
 
-## Project structure
+## Project Structure
 
-```
+```text
 src/neuralfabric/
-├── core/             # Tensor + autograd engine (PyTorch-style backbone)
-├── linear_model/      # Linear/Logistic/Ridge/Lasso/ElasticNet
-├── tree/               # Decision trees
-├── ensemble/           # RandomForest, GradientBoosting, AdaBoost, Bagging
-├── svm/                # Support Vector Machines
-├── naive_bayes/        # Gaussian / Multinomial Naive Bayes
-├── cluster/            # KMeans, DBSCAN, hierarchical clustering
-├── decomposition/      # PCA, SVD
-├── nn/                 # Module, Parameter, layers, activations, losses
-│   └── layers/         # Linear, Conv, Pooling, Normalization, RNN/LSTM/GRU...
-├── transformer/         # Attention, positional encoding, encoder/decoder, full models
-├── optim/              # SGD, Adam, RMSProp, LR schedulers
-├── preprocessing/      # Scalers, encoders, imputers
-├── model_selection/    # train_test_split, cross-validation, grid search
-├── metrics/            # Regression / classification / clustering metrics
-├── datasets/           # Toy dataset loaders
-├── utils/              # Validation + math helpers
-├── base.py             # BaseEstimator, RegressorMixin, ClassifierMixin, TransformerMixin
-└── pipeline.py          # Pipeline / FeatureUnion
+├── core/               # Tensor + autograd engine
+├── linear_model/       # Linear Regression, Logistic Regression
+├── model_selection/    # train_test_split
+└── utils/              # Utility functions
 ```
 
 ## Roadmap
 
-- [x] `core`: Tensor + autograd engine
-- [x] `linear_model`: Linear & Logistic Regression
-- [ ] `tree` / `ensemble`: Decision Tree, Random Forest, Gradient Boosting
-- [ ] `svm`, `naive_bayes`, `cluster`, `decomposition`
-- [ ] `nn`: Module system, core layers, losses, activations
-- [ ] `optim`: SGD, Adam
-- [ ] CNN layers (`nn/layers/conv.py`, `pooling.py`)
-- [ ] RNN/LSTM/GRU (`nn/layers/recurrent.py`)
-- [ ] `transformer`: attention → encoder/decoder → full model
-- [ ] Docs site + tutorials
-- [ ] First PyPI release (`v0.1.0`)
+### Completed
+
+* [x] Tensor implementation
+* [x] Automatic differentiation engine
+* [x] Linear Regression
+* [x] Logistic Regression
+* [x] Train-test split utility
+* [x] Unit testing
+* [x] CI/CD workflows
+* [x] PyPI publishing
+
+### Upcoming
+
+* [ ] Ridge Regression
+* [ ] Lasso Regression
+* [ ] Elastic Net
+* [ ] Decision Trees
+* [ ] Random Forests
+* [ ] Support Vector Machines
+* [ ] K-Means Clustering
+* [ ] PCA
+* [ ] Neural Network API
+* [ ] Optimizers (SGD, Adam)
+* [ ] Transformer Architecture
+* [ ] Documentation Website
 
 ## Development
 
 ```bash
-make dev      # install with dev dependencies
-make test     # run tests with coverage
-make lint     # ruff + mypy
-make format   # black
-make build    # build sdist + wheel
-make publish  # twine upload (requires PyPI credentials)
+make dev
+make test
+make lint
+make format
+make build
+make publish
 ```
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT License. See LICENSE for details.

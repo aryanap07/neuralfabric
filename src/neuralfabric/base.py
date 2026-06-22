@@ -1,43 +1,58 @@
-"""BaseEstimator and Mixins (RegressorMixin, ClassifierMixin, TransformerMixin)
-shared by every classical estimator in LevelGraphs.
-"""
+from __future__ import annotations
+
+from abc import abstractmethod
+from typing import Any, Self
 
 
 class BaseEstimator:
-    """Base class for all estimators.
+    def get_params(self) -> dict[str, Any]:
+        return {
+            key: value for key, value in self.__dict__.items() if not key.endswith("_")
+        }
 
-    Provides ``get_params`` / ``set_params`` (sklearn-style) so every model
-    is introspectable and plugs into model_selection utilities (e.g. grid
-    search) without extra boilerplate.
-    """
-
-    def get_params(self) -> dict:
-        return {k: v for k, v in self.__dict__.items() if not k.endswith("_")}
-
-    def set_params(self, **params):
+    def set_params(self, **params: Any) -> Self:
         for key, value in params.items():
             setattr(self, key, value)
+
         return self
 
 
 class RegressorMixin:
-    """Marks an estimator as a regressor; adds a default R^2 `score`."""
+    @abstractmethod
+    def predict(self, X):
+        raise NotImplementedError
 
-    def score(self, X, y):
-        from .metrics.regression import r2_score
-        return r2_score(y, self.predict(X))
+    def score(self, X, y) -> float:
+        from neuralfabric.metrics.regression import r2_score
+
+        return r2_score(
+            y,
+            self.predict(X),
+        )
 
 
 class ClassifierMixin:
-    """Marks an estimator as a classifier; adds a default accuracy `score`."""
+    @abstractmethod
+    def predict(self, X):
+        raise NotImplementedError
 
-    def score(self, X, y):
-        from .metrics.classification import accuracy_score
-        return accuracy_score(y, self.predict(X))
+    def score(self, X, y) -> float:
+        from neuralfabric.metrics.classification import accuracy_score
+
+        return accuracy_score(
+            y,
+            self.predict(X),
+        )
 
 
 class TransformerMixin:
-    """Adds `fit_transform` for free, given `fit` and `transform`."""
+    @abstractmethod
+    def fit(self, X, y=None):
+        raise NotImplementedError
+
+    @abstractmethod
+    def transform(self, X):
+        raise NotImplementedError
 
     def fit_transform(self, X, y=None):
         return self.fit(X, y).transform(X)

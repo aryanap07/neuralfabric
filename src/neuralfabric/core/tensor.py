@@ -1,6 +1,7 @@
 from __future__ import annotations
 import numpy as np
 
+
 class Tensor:
     __slots__ = ("data", "grad", "requires_grad", "_prev", "_op", "_backward")
 
@@ -225,6 +226,29 @@ class Tensor:
         def _backward():
             if self.requires_grad:
                 self._accumulate(out.grad / self.data)
+
+        out._backward = _backward
+        return out
+
+    def clip(
+        self,
+        min_value: float,
+        max_value: float,
+    ) -> Tensor:
+        out = Tensor(
+            np.clip(self.data, min_value, max_value),
+            requires_grad=self.requires_grad,
+            _children=(self,),
+            _op="clip",
+        )
+
+        def _backward() -> None:
+            if self.requires_grad:
+                mask = ((self.data >= min_value) & (self.data <= max_value)).astype(
+                    self.data.dtype
+                )
+
+                self._accumulate(out.grad * mask)
 
         out._backward = _backward
         return out

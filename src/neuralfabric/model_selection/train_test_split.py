@@ -12,15 +12,17 @@ def train_test_split(
     shuffle: bool = True,
     random_state: int | None = None,
 ) -> tuple[Tensor, Tensor, Tensor, Tensor]:
+    """
+    Split arrays or tensors into random train and test subsets.
+    """
+
     if not 0 < test_size < 1:
         raise ValueError("test_size must be between 0 and 1.")
 
     n_samples = X.shape[0]
 
     if y.shape[0] != n_samples:
-        raise ValueError(
-            "X and y must contain the same number of samples."
-        )
+        raise ValueError("X and y must contain the same number of samples.")
 
     indices = np.arange(n_samples)
 
@@ -39,4 +41,9 @@ def train_test_split(
     y_train = Tensor(y.data[train_idx])
     y_test = Tensor(y.data[test_idx])
 
-    return X_train, X_test, y_train, y_test
+    return (
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+    )
