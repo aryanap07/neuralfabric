@@ -1,10 +1,10 @@
 .PHONY: install dev test lint format build publish clean
 
 install:
-	pip install .
+	python -m pip install .
 
 dev:
-	pip install -e ".[dev]"
+	python -m pip install -e ".[dev]"
 
 test:
 	pytest --cov=neuralfabric --cov-report=term-missing
@@ -14,7 +14,7 @@ lint:
 	mypy src
 
 format:
-	black src tests
+	ruff format src tests
 
 build:
 	python -m build
