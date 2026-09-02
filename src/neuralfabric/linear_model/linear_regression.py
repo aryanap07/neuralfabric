@@ -92,4 +92,4 @@ class LinearRegression(
         return [self.weight, self.bias]
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(" f"lr={self.lr}, " f"epochs={self.epochs})"
+        return f"{self.__class__.__name__}(lr={self.lr}, epochs={self.epochs})"

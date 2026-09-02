@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import numpy as np
 
 
@@ -15,7 +16,7 @@ class Tensor:
             arr = arr.astype(np.float32)
         self.data: np.ndarray = arr
         self.requires_grad: bool = requires_grad
-        self.grad: "np.ndarray | None" = None
+        self.grad: np.ndarray | None = None
         self._prev = set(_children)
         self._op = _op
         self._backward = lambda: None
@@ -57,7 +58,7 @@ class Tensor:
         return x if isinstance(x, Tensor) else Tensor(x)
 
     def _out_requires_grad(self, *others):
-        return self.requires_grad or any((o.requires_grad for o in others))
+        return self.requires_grad or any(o.requires_grad for o in others)
 
     @staticmethod
     def _unbroadcast(grad: np.ndarray, shape: tuple) -> np.ndarray:
@@ -323,7 +324,7 @@ class Tensor:
         topo: list[Tensor] = []
         visited: set[int] = set()
 
-        def build_topo(t: "Tensor"):
+        def build_topo(t: Tensor):
             if id(t) not in visited:
                 visited.add(id(t))
                 for child in t._prev:

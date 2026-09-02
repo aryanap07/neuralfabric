@@ -8,6 +8,7 @@ build/
 dist/
 *.egg-info/
 .eggs/
+*.egg-info
 
 # Virtual environments
 .venv/
@@ -17,6 +18,7 @@ env/
 # Testing / coverage
 .pytest_cache/
 .coverage
+coverage.xml
 htmlcov/
 .tox/
 
@@ -28,10 +30,18 @@ htmlcov/
 docs/_build/
 docs/source/_build/
 
-# Notebook checkpoints
+# Jupyter
 .ipynb_checkpoints/
 
 # Editors / OS
 .vscode/
 .idea/
 .DS_Store
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local tooling
+.pytest_cache/

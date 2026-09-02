@@ -35,6 +35,7 @@ def test_fit_learns_simple_linear_relationship():
     for pred, target in zip(
         predictions.data.flatten(),
         y.data.flatten(),
+        strict=True,
     ):
         assert abs(pred - target) < 0.1
 
