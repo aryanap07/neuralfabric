@@ -1,34 +1,20 @@
 [build-system]
-requires = ["setuptools>=77.0.3", "wheel"]
+requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
-
 
 [project]
 name = "neuralfabric"
-version = "1.0.0"
+version = "1.0"
 description = "A from-scratch machine learning and deep learning framework, from tensors to transformers."
 readme = "README.md"
 requires-python = ">=3.11"
-license = "MIT"
-
-authors = [
-    { name = "Aryan Patel", email = "aryanpatel2906.ap@gmail.com" }
-]
-
-keywords = [
-    "machine-learning",
-    "deep-learning",
-    "neural-networks",
-    "transformers",
-    "autograd",
-    "tensors",
-    "artificial-intelligence",
-]
-
+license = { file = "LICENSE" }
+authors = [{ name = "Aryan Patel", email = "aryanpatel2906.ap@gmail.com" }]
+keywords = ["machine-learning", "deep-learning", "transformer", "neural-network", "autograd"]
 classifiers = [
     "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
@@ -38,71 +24,29 @@ classifiers = [
 ]
 
 dependencies = [
-    "numpy>=2.4.1,<3",
+    "numpy>= 2.4.0",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "build>=1.2",
-    "mypy>=1.15",
-    "pre-commit>=4.0",
-    "pytest>=8.0",
-    "pytest-cov>=6.0",
-    "ruff>=0.11",
-    "twine>=6.0",
-]
-
-docs = [
-    "sphinx>=8.0",
-    "sphinx-rtd-theme>=3.0",
-]
-
-viz = [
-    "matplotlib>=3.9",
-]
+dev = ["pytest", "pytest-cov", "black", "ruff", "mypy", "pre-commit", "build", "twine"]
+docs = ["sphinx", "sphinx-rtd-theme"]
+viz = ["matplotlib"]
 
 [project.urls]
 Repository = "https://github.com/aryanap07/neuralfabric"
 Issues = "https://github.com/aryanap07/neuralfabric/issues"
 
-
 [tool.setuptools.packages.find]
 where = ["src"]
 
-
 [tool.setuptools.package-data]
-neuralfabric = [
-    "datasets/data/*",
-]
-
+"neuralfabric" = ["datasets/data/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = [
-    "-ra",
-]
 
+[tool.black]
+line-length = 88
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
-src = ["src", "tests"]
-
-[tool.ruff.lint]
-select = [
-    "E",      # pycodestyle
-    "F",      # Pyflakes
-    "W",      # warnings
-    "I",      # import sorting
-    "UP",     # pyupgrade
-    "B",      # flake8-bugbear
-]
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
-line-ending = "auto"
-
-
-[tool.mypy]
-python_version = "3.11"
