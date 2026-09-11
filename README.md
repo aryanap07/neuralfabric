@@ -11,7 +11,7 @@ A from-scratch machine learning and deep learning framework, from tensors to tra
 - Train-test split utility
 - Type-safe codebase with MyPy
 - Comprehensive test suite with Pytest
-- Ruff and Black for code quality
+- Ruff for code quality
 - GitHub Actions CI/CD workflows
 - Modern Python packaging and PyPI distribution
 
