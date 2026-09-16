@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="assets/NeuralFabric.svg" alt="NeuralFabric" width="520">
+  <img
+    src="https://raw.githubusercontent.com/aryanap07/NeuralFabric/main/assets/NeuralFabric.svg"
+    alt="NeuralFabric"
+    width="520"
+  >
 </p>
 
 **A from-scratch machine learning framework built from first principles.**
