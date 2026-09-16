@@ -1,21 +1,28 @@
 # NeuralFabric
 
-A from-scratch machine learning and deep learning framework, from tensors to transformers.
+**A from-scratch machine learning framework built from first principles.**
+
+NeuralFabric is an open-source machine learning framework that explores the foundations of modern ML by implementing core components from scratch. It starts at the tensor level and builds upward through automatic differentiation, classical machine learning, and eventually deep learning.
+
+> **Understand the fundamentals. Build the system. Learn by implementing.**
 
 ## Features
 
-- Tensor engine built on NumPy
-- Automatic differentiation (Autograd)
-- Linear Regression
-- Logistic Regression
-- Train-test split utility
-- Type-safe codebase with MyPy
-- Comprehensive test suite with Pytest
-- Ruff for code quality
-- GitHub Actions CI/CD workflows
-- Modern Python packaging and PyPI distribution
+* NumPy-based Tensor Engine
+* Automatic Differentiation
+* Linear Regression
+* Logistic Regression
+* Train-Test Split
+* Type checking with MyPy
+* Testing with Pytest
+* Code quality with Ruff
+* GitHub Actions CI/CD
+* Modern Python packaging
+* PyPI distribution
 
 ## Installation
+
+Install NeuralFabric from PyPI:
 
 ```bash
 pip install neuralfabric
@@ -24,6 +31,8 @@ pip install neuralfabric
 For development:
 
 ```bash
+git clone https://github.com/your-username/neuralfabric.git
+cd neuralfabric
 pip install -e ".[dev]"
 ```
 
@@ -81,49 +90,49 @@ print(model.score(X_test, y_test))
 
 ## Available Models
 
-| Category | Model |
-|----------|--------|
-| Regression | LinearRegression |
-| Classification | LogisticRegression |
+| Category       | Model                |
+| -------------- | -------------------- |
+| Regression     | `LinearRegression`   |
+| Classification | `LogisticRegression` |
 
 ## Project Structure
 
 ```text
-src/neuralfabric/
-├── core/
-│   └── Tensor and Autograd Engine
-├── linear_model/
-│   ├── LinearRegression
-│   └── LogisticRegression
-└── model_selection/
-    └── train_test_split
+src/
+└── neuralfabric/
+    ├── core/
+    │   ├── tensor.py
+    │   └── autograd.py
+    ├── linear_model/
+    │   ├── linear_regression.py
+    │   └── logistic_regression.py
+    └── model_selection/
+        └── train_test_split.py
 ```
 
 ## Roadmap
 
 ### Completed
 
-- [x] Tensor implementation
-- [x] Automatic differentiation engine
-- [x] Linear Regression
-- [x] Logistic Regression
-- [x] Train-test split utility
-- [x] Unit testing
-- [x] CI/CD workflows
-- [x] PyPI publishing
+* [x] Tensor Engine
+* [x] Automatic Differentiation
+* [x] Linear Regression
+* [x] Logistic Regression
+* [x] Train-Test Split
+* [x] Testing
+* [x] CI/CD
+* [x] PyPI Publishing
 
 ### Planned
 
-- [ ] Decision Trees
-- [ ] Random Forests
-- [ ] Support Vector Machines
-- [ ] K-Means Clustering
-- [ ] Principal Component Analysis (PCA)
-- [ ] Neural Network API
-- [ ] Optimizers (SGD, Adam)
-- [ ] Transformer Architecture
-- [ ] Dataset utilities
-- [ ] Documentation website
+* [ ] Neural Network API
+* [ ] Optimizers and Loss Functions
+* [ ] Metrics and Model Serialization
+* [ ] Dataset and DataLoader API
+* [ ] Decision Trees and Random Forests
+* [ ] K-Means and PCA
+* [ ] Documentation and Examples
+* [ ] Benchmark Suite
 
 ## Development
 
@@ -133,18 +142,23 @@ make test
 make lint
 make format
 make build
-make publish
 ```
 
 ## Contributing
 
-Contributions, bug reports, feature requests, and discussions are welcome.
+Contributions are welcome.
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a pull request
+Whether you want to fix a bug, improve documentation, add tests, or build a new component, feel free to open an issue or submit a pull request.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes.
+4. Add or update tests.
+5. Commit your changes.
+6. Open a pull request.
 
 ## License
 
-Distributed under the MIT License. See the LICENSE file for details.
+NeuralFabric is licensed under the **MIT License**.
+
+See the [`LICENSE`](LICENSE) file for details.
