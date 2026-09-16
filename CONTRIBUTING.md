@@ -1,12 +1,12 @@
 # Contributing to NeuralFabric
 
-Thank you for your interest in contributing to NeuralFabric.
+Thank you for your interest in NeuralFabric.
 
-NeuralFabric is built around a simple idea: understand machine learning by implementing its foundations from scratch. Contributions that improve the codebase, strengthen the framework, improve performance, expand test coverage, or make the project easier to use are welcome.
+NeuralFabric is an open-source machine learning framework built from first principles. Contributions that improve the core framework, add well-designed algorithms, strengthen tests, improve performance, or make the project easier to understand and use are welcome.
 
 ## Getting Started
 
-Fork the repository, then clone your fork locally:
+Fork the repository and clone your fork:
 
 ```bash
 git clone https://github.com/<your-username>/neuralfabric.git
@@ -16,11 +16,13 @@ make dev
 pre-commit install
 ```
 
-Before making changes, make sure the existing test suite passes:
+Run the test suite before making changes:
 
 ```bash
 make test
 ```
+
+This helps ensure your development environment is set up correctly and the existing code is working as expected.
 
 ## Development Workflow
 
@@ -46,25 +48,25 @@ git commit -m "feat: add decision tree classifier"
 
 Push your branch and open a Pull Request against `main`.
 
-Keep Pull Requests focused. Smaller changes are easier to review, test, and maintain.
+Keep changes focused. Small, well-defined Pull Requests are easier to review, test, and maintain.
 
 ## Coding Standards
 
-NeuralFabric follows a simple set of engineering principles:
+NeuralFabric aims for code that is simple, readable, and maintainable.
 
 * Follow PEP 8 and existing project conventions.
 * Use type annotations throughout the codebase.
-* Prefer clear, readable, and maintainable implementations.
+* Prefer clear and descriptive names.
 * Keep functions and classes focused on a single responsibility.
-* Use descriptive names for variables, functions, and classes.
 * Avoid unnecessary dependencies.
-* Keep public APIs consistent across modules.
+* Follow existing API and architectural patterns.
+* Keep implementations as simple as the problem allows.
 
-When introducing a new abstraction, prefer a simple design that can be extended later rather than adding unnecessary complexity.
+For mathematical or algorithmic code, prefer correctness and clarity over unnecessary abstraction.
 
 ## Project Structure
 
-Follow the existing repository structure when adding new code.
+Follow the existing structure when adding new code:
 
 ```text
 src/
@@ -77,84 +79,74 @@ tests/
 └── ...
 ```
 
-New modules should be placed in the package that best matches their responsibility.
+Place new functionality in the package that best matches its responsibility.
 
-For example, new linear or logistic models belong under:
+For example:
 
 ```text
 src/neuralfabric/linear_model/
-```
-
-Tests should mirror the corresponding source structure:
-
-```text
 tests/linear_model/
 ```
 
-Do not introduce new top-level packages unless the change requires a new architectural component.
+Avoid introducing new top-level packages unless the change represents a genuine architectural component.
 
 ## Machine Learning APIs
 
-New estimators should follow a consistent interface wherever practical:
+New estimators should follow the existing API style where practical:
 
 ```python
 model.fit(X, y)
 model.predict(X)
 ```
 
-Additional methods, such as `score`, should follow the conventions established by existing estimators.
+Additional methods, such as `score`, should be consistent with the conventions already established in NeuralFabric.
 
-Consistency across the API is important because NeuralFabric is intended to grow into a unified framework rather than a collection of unrelated implementations.
+A consistent API makes the framework easier to learn, use, and extend.
 
 ## Testing
 
 Every new feature and bug fix should include appropriate tests.
 
-For example:
+A typical test layout mirrors the source code:
 
 ```text
 src/neuralfabric/linear_model/logistic_regression.py
 tests/linear_model/test_logistic_regression.py
 ```
 
-Run the complete test suite with:
+Run the full test suite with:
 
 ```bash
 make test
 ```
 
-Good tests should:
-
-* Verify expected behavior.
-* Cover important edge cases.
-* Detect regressions.
-* Keep implementations honest about their mathematical behavior.
+Good tests should verify expected behavior, cover important edge cases, and help prevent regressions.
 
 When fixing a bug, add a regression test whenever practical.
 
 ## Documentation
 
-Documentation is part of the implementation.
+Documentation is part of the contribution.
 
 When adding or changing a public feature:
 
 * Update the relevant documentation.
-* Add a concise usage example when useful.
-* Keep docstrings clear and informative.
+* Add a usage example when it improves clarity.
+* Keep docstrings concise and meaningful.
 * Document behavior that may not be obvious from the API.
 
-Example:
+For example:
 
 ```python
 def predict(X):
     """Predict target values for input samples."""
 ```
 
-Keep documentation accurate and aligned with the current implementation. Avoid documenting planned features as if they already exist.
+Keep documentation aligned with the current implementation. Planned functionality should not be documented as available functionality.
 
 ## Pull Requests
 
-Before opening a Pull Request, verify that:
+Before opening a Pull Request, make sure the following checks pass:
 
 ```bash
 make format
@@ -162,15 +154,13 @@ make lint
 make test
 ```
 
-complete successfully.
-
-A Pull Request should include:
+A good Pull Request should include:
 
 * A clear title.
-* A concise description of the change.
-* Tests for new or changed behavior.
+* A concise explanation of the change.
+* Tests for new or modified behavior.
 * Documentation updates where necessary.
-* Any relevant implementation or design notes.
+* Relevant implementation or design notes.
 
 ### Pull Request Checklist
 
@@ -184,9 +174,9 @@ A Pull Request should include:
 
 ## Reporting Issues
 
-Before opening an issue, check whether it has already been reported.
+Before opening an issue, check whether the problem has already been reported.
 
-When reporting a bug, include:
+For bugs, include:
 
 * A clear description of the problem.
 * Steps to reproduce it.
@@ -197,26 +187,26 @@ When reporting a bug, include:
 * Relevant traceback or logs.
 * A minimal reproducible example when possible.
 
-Clear issue reports make problems much easier to reproduce and resolve.
+Clear issue reports make problems easier to reproduce and resolve.
 
 ## Feature Requests
 
 Feature requests are welcome.
 
-A useful feature request should explain:
+Please describe:
 
 * The problem or use case.
 * The proposed functionality.
 * Why it would be useful to NeuralFabric.
 * Any relevant design considerations or alternatives.
 
-For larger changes, opening an issue before implementation can help establish the direction and avoid duplicated work.
+For larger changes, discussing the idea in an issue before implementation can help keep the project consistent and avoid duplicated work.
 
 ## Code of Conduct
 
-Please keep discussions constructive, respectful, and focused on the project.
+Keep discussions constructive, respectful, and focused on the project.
 
-Contributors should be open to technical feedback and treat other contributors with professionalism.
+Technical feedback is part of open-source development. Be open to review and treat other contributors with professionalism.
 
 ## License
 
