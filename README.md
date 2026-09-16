@@ -1,4 +1,6 @@
-# NeuralFabric
+<p align="center">
+  <img src="assets/NeuralFabric.svg" alt="NeuralFabric" width="520">
+</p>
 
 **A from-scratch machine learning framework built from first principles.**
 
