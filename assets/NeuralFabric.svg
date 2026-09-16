@@ -1,0 +1,17 @@
+<svg width="520" height="100" viewBox="0 0 520 100"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="520" height="100" fill="none"/>
+
+  <text x="260" y="62"
+        text-anchor="middle"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="52px"
+        letter-spacing="-2.5px">
+
+    <tspan font-weight="700" fill="#111827">Neural</tspan><tspan
+        font-weight="400"
+        fill="#0F766E">Fabric</tspan>
+
+  </text>
+</svg>
