@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "neuralfabric"
-version = "1.1.0"
-description = "A from-scratch machine learning and deep learning framework, from tensors to transformers."
+version = "1.1.1"
+description = "A from-scratch machine learning framework built from first principles."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
