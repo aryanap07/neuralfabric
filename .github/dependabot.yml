@@ -3,17 +3,44 @@ version: 2
 updates:
   - package-ecosystem: "pip"
     directory: "/"
-
     schedule:
       interval: "weekly"
-
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
     open-pull-requests-limit: 5
-
     labels:
       - "dependencies"
-
+      - "python"
     commit-message:
       prefix: "deps"
+      include: "scope"
+    groups:
+      python-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
-    reviewers:
-      - "aryanap07"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    groups:
+      github-actions-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
