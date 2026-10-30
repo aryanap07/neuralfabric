@@ -14,6 +14,10 @@ authors = [
     { name = "Aryan Patel", email = "aryanpatel2906.ap@gmail.com" },
 ]
 
+maintainers = [
+    { name = "Doordarshan Contributors" },
+]
+
 keywords = [
     "machine-learning",
     "deep-learning",
