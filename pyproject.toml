@@ -15,7 +15,7 @@ authors = [
 ]
 
 maintainers = [
-    { name = "Doordarshan Contributors" },
+    { name = "NeuralFabric Contributors" },
 ]
 
 keywords = [
