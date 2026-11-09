@@ -94,13 +94,13 @@ print("\nR² Score:")
 print(model.score(X_test, y_test))
 ```
 
-## Available Models
+### Implemented Components
 
-| Category       | Model                |
-| -------------- | -------------------- |
-| Regression     | `LinearRegression`   |
-| Classification | `LogisticRegression` |
-| Preprocessing  | `StandardScaler`     |
+| Component Type | Implementation |
+| :--- | :--- |
+| Regressor | `LinearRegression` |
+| Classifier | `LogisticRegression` |
+| Transformer | `StandardScaler` |
 
 ## Project Structure
 
