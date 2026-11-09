@@ -100,6 +100,7 @@ print(model.score(X_test, y_test))
 | -------------- | -------------------- |
 | Regression     | `LinearRegression`   |
 | Classification | `LogisticRegression` |
+| Preprocessing  | `StandardScaler`     |
 
 ## Project Structure
 
