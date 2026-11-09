@@ -6,43 +6,56 @@
   >
 </p>
 
-**A from-scratch machine learning framework built from first principles.**
+<p align="center">
+  <strong>A from-scratch machine learning framework built from first principles.</strong>
+</p>
 
-NeuralFabric is an open-source machine learning framework that explores the foundations of modern ML by implementing core components from scratch. It starts at the tensor level and builds upward through automatic differentiation, classical machine learning, and eventually deep learning.
+NeuralFabric is an open-source machine learning framework that explores the foundations of modern machine learning through hands-on implementation. It starts with a NumPy-based tensor engine and reverse-mode automatic differentiation, then builds toward classical machine learning and deep learning components.
 
 > **Understand the fundamentals. Build the system. Learn by implementing.**
 
 ## Features
 
-* NumPy-based Tensor Engine
-* Automatic Differentiation
-* Linear Regression
-* Logistic Regression
-* Train-Test Split
-* Type checking with MyPy
-* Testing with Pytest
-* Code quality with Ruff
-* GitHub Actions CI/CD
-* Modern Python packaging
-* PyPI distribution
+### Core Functionality
+
+- NumPy-based Tensor Engine
+- Reverse-Mode Automatic Differentiation
+- Linear Regression
+- Binary Logistic Regression
+- Train-Test Split
+- Feature Scaling with `StandardScaler`
+- Regression and Classification Metrics
+
+### Development Tooling
+
+- Static Type Checking with MyPy
+- Testing with Pytest
+- Linting and Formatting with Ruff
+- Continuous Integration with GitHub Actions
+- Python Package Build and PyPI Publishing Workflow
 
 ## Installation
 
-Install NeuralFabric from PyPI:
+NeuralFabric is available on PyPI:
 
 ```bash
-pip install neuralfabric
+python -m pip install neuralfabric
 ```
 
-For development:
+**Requirements:** Python 3.11 or later. The CI workflow tests Python 3.11, 3.12, and 3.13.
+
+### Development Installation
 
 ```bash
-git clone https://github.com/your-username/neuralfabric.git
+git clone https://github.com/aryanap07/neuralfabric.git
 cd neuralfabric
-pip install -e ".[dev]"
+python -m pip install -e ".[dev]"
+pre-commit install
 ```
 
 ## Quick Start
+
+The following example trains a linear regression model on a small dataset:
 
 ```python
 from neuralfabric.core.tensor import Tensor
@@ -94,7 +107,7 @@ print("\nR² Score:")
 print(model.score(X_test, y_test))
 ```
 
-### Implemented Components
+## Implemented Components
 
 | Component Type | Implementation |
 | :--- | :--- |
@@ -105,67 +118,91 @@ print(model.score(X_test, y_test))
 ## Project Structure
 
 ```text
-src/
-└── neuralfabric/
-    ├── core/
-    │   ├── tensor.py
-    │   └── autograd.py
-    ├── linear_model/
-    │   ├── linear_regression.py
-    │   └── logistic_regression.py
-    └── model_selection/
-        └── train_test_split.py
+.
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── publish.yml
+├── assets/
+│   └── NeuralFabric.svg
+├── examples/
+├── src/
+│   └── neuralfabric/
+│       ├── core/
+│       │   └── tensor.py
+│       ├── linear_model/
+│       │   ├── linear_regression.py
+│       │   └── logistic_regression.py
+│       ├── metrics/
+│       │   ├── classification.py
+│       │   └── regression.py
+│       ├── model_selection/
+│       │   └── train_test_split.py
+│       └── preprocessing/
+│           └── scalers.py
+├── tests/
+├── CONTRIBUTING.md
+├── LICENSE
+├── Makefile
+├── pyproject.toml
+├── README.md
+└── SECURITY.md
 ```
 
 ## Roadmap
 
 ### Completed
 
-* [x] Tensor Engine
-* [x] Automatic Differentiation
-* [x] Linear Regression
-* [x] Logistic Regression
-* [x] Train-Test Split
-* [x] Testing
-* [x] CI/CD
-* [x] PyPI Publishing
+- [x] Tensor Engine
+- [x] Automatic Differentiation
+- [x] Linear Regression
+- [x] Logistic Regression
+- [x] Train-Test Split
+- [x] StandardScaler
+- [x] Regression and Classification Metrics
+- [x] Test Suite
+- [x] GitHub Actions CI
+- [x] PyPI Publishing Workflow
 
 ### Planned
 
-* [ ] Neural Network API
-* [ ] Optimizers and Loss Functions
-* [ ] Metrics and Model Serialization
-* [ ] Dataset and DataLoader API
-* [ ] Decision Trees and Random Forests
-* [ ] K-Means and PCA
-* [ ] Documentation and Examples
-* [ ] Benchmark Suite
+- [ ] Neural Network API and Layers
+- [ ] Optimizers and Loss Functions
+- [ ] Decision Trees and Ensemble Methods
+- [ ] Support Vector Machines
+- [ ] Clustering Algorithms
+- [ ] Dimensionality Reduction
+- [ ] Dataset and DataLoader API
+- [ ] Model Serialization
+- [ ] Documentation and Expanded Examples
+- [ ] Benchmark Suite
 
 ## Development
 
+Install the development dependencies and pre-commit hooks:
+
 ```bash
 make dev
-make test
-make lint
+pre-commit install
+```
+
+Run the project checks and build the package:
+
+```bash
 make format
+make lint
+make test
 make build
 ```
 
 ## Contributing
 
-Contributions are welcome.
+Contributions are welcome. Before opening a pull request, please read the [Contributing Guide](CONTRIBUTING.md) and make sure the relevant tests and checks pass.
 
-Whether you want to fix a bug, improve documentation, add tests, or build a new component, feel free to open an issue or submit a pull request.
+## Security
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Add or update tests.
-5. Commit your changes.
-6. Open a pull request.
+Please report suspected vulnerabilities privately, following the instructions in [SECURITY.md](SECURITY.md). Do not disclose security vulnerabilities through public issues or pull requests.
 
 ## License
 
-NeuralFabric is licensed under the **MIT License**.
-
-See the [`LICENSE`](LICENSE) file for details.
+NeuralFabric is distributed under the **MIT License**. See the [`LICENSE`](LICENSE) file for details.
